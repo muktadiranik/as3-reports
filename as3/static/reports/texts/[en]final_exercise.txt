@@ -1,0 +1,13 @@
+<para>
+A multidisciplinary exercise encompasses all the skills acquired throughout the course; it is measured in several ways. Some additional factors are added for stress inoculation, depending on the group's skill and experience, increasing the difficulty level accordingly.<br/>
+<br/>
+The route includes four basic tests which will define the experience, skill, and self-control under stress of each student; we measure:<br/>
+<br/>
+<span fontName=MontserratBold>Time:</span> This might be the most subjective of all tests. It determines the experience and ease of each student against the average of 4 runs set by professional drivers through the exercise. <br/>
+<br/>
+A passing grade requires achieving over 80% of the exercise's ideal, yet this is only one of four grades; the rest include:<br/>
+<br/>
+<span fontName=MontserratBold>Slalom and Barricade:</span> Each student's performance through these exercises should clock above 80% of the Vehicle's Capability on the onboard computers, as they did during practice.<br/>
+<br/>
+<span fontName=MontserratBold>Reverse:</span> Te final exercise starts with reverse serpentine; each student must negotiate this section in under 20% of their total time, without hitting any cones, the amount of time invested in reverse is represented by the size of the circles in the graph, a smaller circle means better performance.
+</para>

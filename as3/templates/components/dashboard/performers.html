@@ -1,0 +1,62 @@
+<section class="performers">
+    {% comment %} herwe {% endcomment %}
+    <div class="card" id="performers-section" >
+        <div class="card-header">
+            <h4 class="card-title">
+                <span class="language-en">
+                    Performers
+                </span>
+                <span class="language-es">
+                    Desempeño
+                </span>
+
+                <i class="bi bi-info-circle-fill" data-bs-toggle="modal" data-bs-target="#performers-modal"></i>
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item performer-tab active" role="presentation">
+                        <a class="nav-link active" id="high-performers-tab" data-bs-toggle="tab" href="#top_performers_section"
+                            role="tab" aria-controls="top_performers_section" aria-selected="false">
+                            <h6>
+                                <span class="language-en">
+                                    Top Peformers
+                                </span>
+                                <span class="language-es">
+                                    Alto Desempeño
+                                </span>
+                            </h6>
+                        </a>
+                    </li>
+                    <li class="nav-item performer-tab" role="presentation">
+                        <a class="nav-link " id="low-performers-tab" data-bs-toggle="tab" href="#low_performers_section"
+                            role="tab" aria-controls="low_performers_section" aria-selected="false">
+                            <h6>
+                                <span class="language-en">
+                                    Low Peformers
+                                </span>
+                                <span class="language-es">
+                                    Bajo Desempeño
+                                </span>
+                            </h6>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="students_records_content">
+                    <div class="tab-pane fade show active" id="top_performers_section" role="tabpanel"
+                        aria-labelledby="high-performers-tab">
+                        {% include 'components/dashboard/top-performers-student-record.html' %}
+                    </div>
+
+                    <div class="tab-pane fade " id="low_performers_section" role="tabpanel"
+                        aria-labelledby="low-performers-tab">
+                        {% include 'components/dashboard/low-performers-student-record.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'components/dashboard/info-modals/performers-modal.html' %}
+</section>

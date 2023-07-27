@@ -1,0 +1,89 @@
+<section class="section users-table">
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        User Feedback
+                    </h4>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table table-lg">
+                            <thead>
+                                <tr>
+                                    <th>USER</th>
+                                    <th>COMPANY</th>
+                                    <th>RATING</th>
+                                    <th>DATE</th>
+                                </tr>
+                            </thead>
+                            <tbody class="feedback-accordion" id="feedback-row-accordion">
+                                {% for feedback in feedbacks %}
+                                <div class="accordion-item">
+                                    <tr class="accordion-header " id="heading-{{feedback.id}}" class="accordion-button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse-{{feedback.id}}"
+                                        aria-expanded="true" aria-controls="collapse-{{feedback.id}}">
+                                        <td><i class="bi bi-box-arrow-in-down"></i>
+                                            {{feedback.name}}<br/>{{feedback.idUser.username}}</td>
+                                        <td>{{feedback.idCompany.name}}</td>
+                                        <td>
+                                            {% with ''|center:feedback.rating as range %}
+                                            {% for i in range  %}
+                                            <i class="bi bi-star-fill"></i>
+                                            {% endfor %}
+                                            {% endwith %}
+                                        </td>
+                                        <td>{{feedback.timestamp}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div id="collapse-{{feedback.id}}" class="accordion-collapse collapse sow"
+                                                aria-labelledby="heading-{{feedback.id}}"
+                                                data-bs-parent="#feedback-row-accordion">
+                                                <div class="accordion-body">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Key</th>
+                                                                <th>Content</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Liked the most</td>
+                                                                <td>{{feedback.likeMost}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Didn't liked</td>
+                                                                <td>{{feedback.didntLike}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Future Suggestions</td>
+                                                                <td>{{feedback.futureSuggestion}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Overall Feedback</td>
+                                                                <td>{{feedback.overallFeedback}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div id="users-table" data-url="{% url 'core:api:admin_api:user_list_api' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

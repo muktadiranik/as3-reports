@@ -1,0 +1,85 @@
+<!--BorderLess Modal Modal -->
+<div class="modal fade text-left modal-borderless " id="global-report-download-modal" tabindex="-1" role="dialog"
+    aria-labelledby="global-report-download-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <span class="language-en">
+                        Download Report
+                    </span>
+                    <span class="language-es">
+                        Descargar Informe
+                    </span>
+                </h5>
+                <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <span class="language-en">
+                        Do you want to download the company report for {{company.name}} {% if course %} and program {{course.idProgram.name}} on event date {{course.eventDate}} {% endif %}?
+                    </span>
+                    <span class="language-es">
+                        Quieres descargar el informe de la empresa {% if course %} para y programa {{course.idProgram.name}} en la fecha del evento {{course.eventDate}} {% endif %}?
+                    </span>
+                </p>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="form-check-input form-check-primary form-check-glow" checked="" name="filter-report-checkbox" id="filter-report-checkbox-id">
+                    <label class="form-check-label" for="filter-report-checkbox">
+                        <span class="language-en">
+                            Download report with applied filter
+                        </span>
+                        <span class="language-es">
+                            Descargar informe con filtro aplicado
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-light-primary" 
+                    id="download_global_report_btn" data-url="
+                    {% if page_type == 'company' %}
+                    {% if user_type == 'admin' %}
+                        {% url 'core:api:admin_api:global_company_report' company_id=company.id %}
+                    {% else %}
+                        {% url 'core:api:global_company_report' %}
+                    {% endif %}
+        
+                    {% else %} 
+                    {% if user_type == 'admin' %}
+                        {% url 'core:api:admin_api:global_course_report' company_id=company.id course_id=course.id %} 
+                        {% else %}
+                        {% url 'core:api:global_course_report' course_id=course.id %} 
+                    {% endif %}
+                {% endif %}
+                    ">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">
+                        <span class="language-en">
+                            Download
+                        </span>
+                        <span class="language-es">
+                            Descargar
+                        </span>
+
+                    </span>
+                </button>
+
+                <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">
+                        <span class="language-en">
+                            Close
+                        </span>
+                        <span class="language-es">
+                            Cerrar
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

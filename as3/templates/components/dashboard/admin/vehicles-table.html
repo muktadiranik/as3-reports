@@ -1,0 +1,42 @@
+<section class="section vehicles-table">
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Vehicles
+                        {% comment %} <button type="button" class="btn btn-primary float-right " data-bs-toggle="modal"
+                            data-bs-target="#add-edit-vehicle-modal" id="add-Vehicle-btn"
+                            data-url="{% url 'core:api:admin_api:vehicles_list_api' %}">
+                            Add Vehicle <i class="bi bi-car-front"></i>
+                        </button> {% endcomment %}
+                    </h4>
+                    <br>
+                    <div class="row">
+                        <div class="col-7 ">
+                            <div class="form-group position-relative has-icon-right ">
+                                <input type="text" class="form-control filter-input" placeholder="Search Anything here..."
+                                    id="id_Vehicle_search_input">
+                                <div class="form-control-icon" style="float:right;">
+                                    <i class="bi bi-search"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-5 ">
+                            <div id="vehicles-table-pagination" style="float:right;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div id="vehicles-table" data-url="{% url 'core:api:admin_api:vehicles_list_api' %}">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'components/dashboard/admin/create-edit-vehicles-modal.html' %}
+</section>

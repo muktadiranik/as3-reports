@@ -1,0 +1,31 @@
+
+<section class="section course-upload-table">
+    {% include 'components/dashboard/admin/upload-course.html' %}
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Uploaded Courses
+                        <button style="" class="btn btn-primary float-right" id="" 
+                        data-bs-toggle="offcanvas" data-bs-target="#uploadCourseOffcanvasBottom"
+                        aria-controls="uploadCourseOffcanvasBottom">
+                            New Course <i class="bi bi-cloud-plus-fill"></i>
+                    </button>
+                        <br>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div id="course-upload-table" 
+                        data-url="{% url 'core:api:admin_api:course_uploads_list' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+   
+

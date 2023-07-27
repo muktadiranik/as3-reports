@@ -1,0 +1,29 @@
+{% load static %}
+<div class="card">
+    <div class="card-header">
+        <h4>
+            <span class="language-en">
+                Vehicles Used
+            </span>
+            <span class="language-es">
+                Vehiculos Utilizados
+            </span>
+            <div id = "vehicles-table-pagination"  style="float:right; font-weight:200;">
+            </div>
+        </h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div id="vehicles-table" data-url="
+            {% if page_type == 'course-only' and user_type == 'admin' %}
+                {% url 'core:api:admin_api:course_vehicles' course_id=course.id %}
+            {% else %}
+                {% url 'core:api:admin_api:course_vehicles' company_id=company.id course_id=course.id %} 
+            {% endif %}
+            " >
+            </div>
+            {% comment %} {% for vehicle in vehicles %}
+            {% endfor %} {% endcomment %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvasRight" aria-labelledby="filterOffcanvasRightLabel"
+    get_filters_url="{% if user_type == 'company' %}{% url 'core:api:filter_values' %}{% else %}{% url 'core:api:admin_api:filter_values' company_id=company.id %}{% endif %}">
+    <div class="offcanvas-header">
+        <h4 id="offcanvasRightLabel">
+            <span class="language-en">Add Filter</span>
+            <span class="language-es">Agregar Filtro</span>
+            <i class="bi bi-funnel-fill"></i>
+        </h4>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group filter-form">
+                        <label for="select-groups"><span class="language-en">Group</span><span
+                                class="language-es">Grupo</span></label>
+                        <div class="spinner-border spinner-border-sm text-dark filter-select-spinner" role="status">
+                            <span class="visually-hidden"><span class="language-en">Loading</span><span
+                                    class="language-es">Cargando</span>...</span>
+                        </div>
+                        <select class="choices form-select multiple-remove" multiple="multiple" id="select-groups">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group filter-form">
+                        <label for="select-teams"><span class="language-en">Team</span><span
+                                class="language-es">Equipo</span></label>
+                        <div class="spinner-border spinner-border-sm text-dark filter-select-spinner" role="status">
+                            <span class="visually-hidden"><span class="language-en">Loading</span><span
+                                    class="language-es">Cargando</span>...</span>
+                        </div>
+                        <select class="choices form-select multiple-remove" multiple="multiple" id="select-teams">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group filter-form">
+                        <label for="selectLocations"><span class="language-en">Location</span><span
+                                class="language-es">Localidad</span></label>
+                        <div class="spinner-border spinner-border-sm text-dark filter-select-spinner" role="status">
+                            <span class="visually-hidden"><span class="language-en">Loading</span><span
+                                    class="language-es">Cargando</span>...</span>
+                        </div>
+                        <select class="choices form-select multiple-remove" multiple="multiple" id="selectLocations">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group filter-form">
+                        <label for="selectPrograms"><span class="language-en">Program</span><span
+                                class="language-es">Programa</span></label>
+                        <div class="spinner-border spinner-border-sm text-dark filter-select-spinner" role="status">
+                            <span class="visually-hidden"><span class="language-en">Loading</span><span
+                                    class="language-es">Cargando</span>...</span>
+                        </div>
+                        <select class="choices form-select multiple-remove" multiple="multiple" id="selectPrograms">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="select-event-date"><span class="language-en">Event Date</span><span
+                                class="language-es">Fecha del Evento</span></label>
+                        <div id="_id_event_date_selector"
+                            style="background: #f9f9f9; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                            <i class="bi bi-calendar"></i>&nbsp;
+                            <span></span> <i class="bi bi-caret-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <br />
+                    <button role="button" id="_id_filter_main_btn" class="btn btn-primary">
+                        <span class="language-en">Apply Filter</span><span class="language-es">Aplicar filtro</span>
+                    </button>
+                    <button role="button" id="_id_filter_reset_btn" class="btn btn-secondary">
+                        <span class="language-en">Reset Filter</span><span class="language-es">Restablecer filtro</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

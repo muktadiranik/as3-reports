@@ -1,0 +1,57 @@
+<div class="modal fade" id="add-edit-vehicle-modal" tabindex="-1" aria-labelledby="add-edit-vehicle-modal-label"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="add-edit-vehicle-modal-label"><span class="vehicle_createtype_head">Edit
+						Vehicle</span>
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="vehicle_create_edit_form" data-url="" enctype="multipart/form-data">{% csrf_token %}
+				<div class="modal-body">
+					<div class = "row">
+						<div class="col-6">
+							<label for="name" class="col-form-label">Name:</label>
+							<input type="text" maxlength="100" class="form-control" id="id_vehicle_name" name="name">
+						</div>
+						<div class="col-6">
+							<label for="name" class="col-form-label">Lat Acc</label>
+							<input type="number" step="0.01" class="form-control" id="id_last_acc" name="latAcc">
+						</div>
+					</div>
+					<div class = "row">
+						<div class="col-6">
+							<label for="name" class="col-form-label">Type:</label>
+							<input type="text" maxlength="100" class="form-control" id="id_vehicle_type" name="type">
+						</div>
+						<div class="col-6">
+							<label for="name" class="col-form-label">Make:</label>
+							<input type="number" step="0.01" class="form-control" id="id_vehicle_make" name="make">
+						</div>
+					</div>
+					<br>
+					<div class="mb-3">
+						<div class="vehicle-image-upload">
+							<div class="vehicle-image-edit">
+								<input type='file' id="id_vehicle_image" accept=".png, .jpg, .jpeg" name = "image" />
+								<label for="id_vehicle_image">
+									<i class="bi bi-image-fill" id = "vehicle-image-icon"></i>
+								</label>
+							</div>
+							<div class="avatar-preview">
+								<div id="vehicle-image-image-preview">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary" id="submit-edit-vehicle"><span
+									class="vehicle_createtype_btn">Update Vehicle</span></button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,68 @@
+{% load static %}
+
+<nav class="navbar navbar-light" style="margin-bottom: 20px;">
+    <div class="container-fluid d-block">
+        {% comment %} <a href="index.html"><i class="bi bi-chevron-left"></i></a> {% endcomment %}
+        <a class="" href="/">
+            <img class="img-responsive img-fluid"
+                src="{% static 'assets\images\AS3-Driver-Training-Logo-small_93756138-d10c-421b-aa3d-190628bbbf74.png' %}">
+        </a>
+        <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown" style="float:right;">
+                <div class="user-menu d-flex">
+                    <div class="user-name text-end me-3">
+                        <h6 class="mb-0 text-gray-600">{{request.user.username}}</h6>
+                        <p class="mb-0 text-sm text-gray-600">
+                            {% if request.user.profile == "Admin" or request.user.profile == "Superadmin"  %}{{request.user.profile}}{% else %}{{company.name}}{% endif %}</p>
+                    </div>
+                    <div class="user-img d-flex align-items-center">
+                        <div class="avatar avatar-md">
+                            <img src="{% static 'assets/images/avatar.png' %}">
+                        </div>
+                    </div>
+                </div>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
+                    style="min-width: 11rem;">
+                    {% comment %} <li>
+                        <h6 class="dropdown-header">Hello, {{request.user.username}}!</h6>
+                    </li> {% endcomment %}
+
+                    {% if user_type == "company" %}
+                    <li><a class="dropdown-item" href="/feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-send-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+                            </svg> Feedback</a>
+                    </li>
+                    {% endif %}
+
+                    {% comment %} <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
+                            Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>Settings</a></li>
+                    {% endcomment %}
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" href="{% url 'account:logout' %}"><i
+                                class="icon-mid bi bi-box-arrow-left me-2"></i>Logout</a></li>
+                </ul>
+            </div>
+        </a>
+        <div style="float: right;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate"
+                viewBox="0 0 16 16" style="margin-top:5px;margin-right:4px;">
+                <path
+                    d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z" />
+                <path
+                    d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z" />
+            </svg>
+            <select class="choices form-select choices__input" id="language-select"
+                data-url="{% url 'core:api:language_change' %}">
+
+                <option value="en"><i class="bi bi-funnel"></i>EN</option>
+                <option value="es">ES</option>
+            </select>
+
+        </div>
+
+    </div>
+</nav>

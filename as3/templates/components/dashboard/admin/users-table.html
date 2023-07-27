@@ -1,0 +1,66 @@
+<section class="section users-table">
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Users 
+                        <button type="button" class="btn btn-primary float-right " data-bs-toggle="modal"
+                            data-bs-target="#add-edit-user-modal" id = "add-user-btn"
+                            data-url="{% url 'core:api:admin_api:user_list_api' %}">
+                            New User <i class="bi bi-person-plus-fill"></i>
+                        </button></h4>
+                        <br>
+                    <div class="row">
+                        <div class="col-4 col-lg-4 col-md-12 col-sm-12">
+                            <h6>Search</h6>
+                            <div class="form-group position-relative has-icon-right ">
+                                <input type="text" class="form-control filter-input" placeholder="Search Anything here..." id = "id_user_search_input">
+                              <div class="form-control-icon" style = "float:right;">
+                                    <i class="bi bi-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-lg-2 col-md-4 col-sm-4">
+                            <h6>Profile</h6>
+                            <fieldset class="form-group">
+                                <select class="form-select filter-input" id="profile-select">
+                                    <option value="all">All</option>
+                                    <option value="Superadmin">Super Admin</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Company">Company</option>
+                                    <option value="Group">Group</option>
+                                    <option value="Team">Team</option>
+                                    <option value="Student">Student</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-2 col-lg-2 col-md-4 col-sm-4">
+                            <h6>Country</h6>
+                            <fieldset class="form-group">
+                                <select class="form-select filter-input" id="country-select">
+                                    <option value="all">All</option>
+                                    {% for country in countries %}
+                                    <option value="{{country.name}}">{{country.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class = "col-4 col-lg-4 col-md-12 col-sm-12">
+                            <div id = "user-table-pagination">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div id="users-table" data-url="{% url 'core:api:admin_api:user_list_api' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'components/dashboard/admin/create-edit-user-modal.html' %}
+</section>

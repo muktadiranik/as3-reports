@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block styles %}
+{% comment %} <link rel="stylesheet" href="{% static 'assets/css/dashboard.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div id="app">
+
+    {% include 'partials/navbar.html' %}
+    <br />
+
+    <div class="container-fluid">
+        {% if company %}
+        <div class="page-heading" cname="{{company.name}}" data-id = "{{company.id}}" id="page-header">
+            <div class="row">
+                <div class="col-8">
+                    
+                    <h3 style="display:inline-block">
+                        {{company.name}}'s
+                        <span class="language-en">
+                            Dashboard
+                        </span>
+                        <span class="language-es">
+                            Consola
+                        </span>
+                        <i class="bi bi-info-circle-fill" data-bs-toggle="modal"
+                            data-bs-target="#introduction-modal"></i>
+                    </h3>
+                    
+                </div>
+                {% include 'components/dashboard/info-modals/introduction-modal.html' %}
+                <div class="col-4">
+                    <a data-bs-toggle="modal" data-bs-target="#global-report-download-modal"
+                        style="float: right;" class="btn btn-outline-primary float-right"
+                        id="download_global_report_export">
+                        <span class="language-en">
+                            Download Report
+                        </span>
+                        <span class="language-es">
+                            Descargar Reporte
+                        </span>
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                    </a>
+                    {% include 'components/dashboard/info-modals/global-report-download.html' %} 
+                    {% if page_type == "company" %}
+                    {% include 'components/dashboard/filter-offcanvas.html' %}
+                    <a style="float: right; margin-right:8px;" class="btn btn-secondary float-right" id="add_filter_btn"
+                        data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvasRight"
+                        aria-controls="filterOffcanvasRight">
+                        <span class="language-en">
+                            Add Filter
+                        </span>
+                        <span class="language-es">
+                            Agregar Filtro
+                        </span>
+                        <i class="bi bi-funnel-fill"></i>
+                    </a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
+        {% block page_content %}
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+
+<script type="text/javascript" src="{% static 'assets/js/core.js' %}"></script>
+<script src="{% static 'assets/js/students.js' %}"></script>
+<script src="{% static 'assets/js/performers.js' %}"></script>
+<script src="{% static 'assets/js/performance.js' %}"></script>
+<script src="{% static 'assets/js/performance-control.js' %}"></script>
+{% block inner_js %}
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'core/company/base.html' %}
+{% block title %}
+<title>{{course.idProgram.name}} | {{company.name}} | AS3 International Dashboard</title>
+{% endblock title %}
+
+{% load static %}
+{% block styles %}
+<style>
+    .table-height-responsive {
+        max-height: 350px;
+        overflow: auto;
+    }
+
+    .img-center {
+        margin-top: 200px;
+        padding: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .progress-card-body {
+        min-height: 750px;
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="page-content" cname="{{company.name}}" id="page-header">
+    <nav aria-label="breadcrumb">
+
+        <div class="row">
+            <div class="col-8">
+                <h5>
+                    {% if page_type == "course-only" %}
+                    <a href="{% if user_type == 'admin' %}{% url 'core:admin:admin_index' %}{% endif %}">
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+                    {% else %}
+                    <a
+                        href="{% if user_type == 'company' %}{% url 'core:index' %}{% else %}{% url 'core:admin:index' company_id=company.id %}{% endif %}">
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+
+                    {% endif %}
+                    <i class="bi bi-calendar3-event"></i>
+                    <b>{{course.idProgram.name}}</b>
+                </h5>
+
+            </div>
+            <div class="col-4 text-end">
+
+                <h5><i class="bi bi-calendar-date"></i>
+                    {{course.eventDate|date:"M d, Y"}}</h5>
+                <h5>
+                    <i class="bi bi-geo-fill"></i>
+                    {{course.idVenue.name}}, {{course.idVenue.idCountry.name}}</h5>
+            </div>
+
+        </div>
+
+        <br />
+    </nav>
+    <section>
+
+        <div class="row">
+            <div class="col-12">
+                {% include 'components/dashboard/heatmap.html' %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                {% include 'components/dashboard/students-table.html' %}
+            </div>
+            <div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6">
+                        {% include 'components/dashboard/comments.html' %}
+                    </div>
+                    <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6">
+                        {% include 'components/dashboard/vehicles-used.html' %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            {% include 'components/dashboard/performers.html' %}
+        </div>
+
+        <div class="row">
+            {% include 'components/dashboard/activity.html' %}
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block inner_js %}
+<script>
+    var swal_desc =
+        `<h5>Cooking the fresh report for you. It will take some time to finish...</h5><br><img src = "{% static 'assets/images/download_wait.gif' %}">`
+       </script>
+<script src="{% static 'assets/js/course.js' %}"></script>
+
+{% endblock %}

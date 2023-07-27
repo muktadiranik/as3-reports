@@ -1,0 +1,112 @@
+<section id="expired-certificates"
+    data-url="{% if user_type == 'company' %}{% url 'core:api:expired_certificates' %}{% else %}{% url 'core:api:admin_api:expired_certificates' company_id=company.id %}{% endif %}">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-9">
+                    <h4>
+                        <span class="language-en">
+                            Certificates About to Expire
+                        </span>
+                        <span class="language-es">
+                            Certificados Próximos a Expirar
+                        </span>
+                    </h4>
+                </div>
+                <div class="col-3">
+                    <div id="exp-about-cert-table-pagination" style="float:right;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-height-responsive">
+                <table class="table table-responsive table-lg" id="tobe_expired_certificates_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="language-en">
+                                    STUDENT NAME
+                                </span>
+                                <span class="language-es">
+                                    NOMBRE DEL ESTUDIANTE
+                                </span>
+                            </th>
+                            <th>
+                                <span class="language-en">
+                                    LAST COURSE
+                                </span>
+                                <span class="language-es">
+                                    ÚLTIMO CURSO
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-8">
+                    <h4>
+                        <span class="language-en">
+                            Expired Certificates
+                        </span>
+                        <span class="language-es">
+                            Certificados Expirados
+                        </span>
+                        {% comment %} <i class="bi bi-info-circle"></i> {% endcomment %}
+                    </h4>
+                </div>
+                <div class="col-4">
+                    <div id="exp-cert-table-pagination" style="float:right;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-height-responsive">
+                <table class="table table-responsive table-lg" id="expired_certificates_table">
+                    <thead>
+                        <tr>
+                            <th class="col-7">
+                                <span class="language-en">
+                                    STUDENT NAME
+                                </span>
+                                <span class="language-es">
+                                    NOMBRE DEL ESTUDIANTE
+                                </span>
+                            </th>
+                            <th class="col-5">
+                                <span class="language-en">
+                                    EVENT DATE
+                                </span>
+                                <span class="language-es">
+                                    FECHA DEL EVENTO
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            {% comment %} <div>
+                <p>
+                    <span class="language-en">
+                        No expired certificates
+                    </span>
+                    <span class="language-es">
+                        No hay certificados expirados
+                    </span>
+                </p>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</section>

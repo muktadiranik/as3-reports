@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="card">
+    <div class="card-header">
+        <h4>
+            <span class="language-en">
+                The Security Driver Universe
+            </span>
+            <span class="language-es">
+                Universo de Conductores de Seguridad
+            </span>
+            <i class="bi bi-info-circle-fill" data-bs-toggle="modal" data-bs-target="#heatmap-modal"></i>
+        </h4>
+    </div>
+    <div class="card-body">
+        <div class="col-12 heatmap-loader-gif">
+            <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+        </div>
+        <div id="heatmap-plot" class='filter-affected' 
+            data-url="
+                {% if page_type == 'course-only' and user_type == 'admin' %}
+                    {% url 'core:api:admin_api:course_averages' course_id=course.id %}
+                {% else %}
+                {% if page_type == 'company' %}
+                    {% if user_type == 'admin' %}
+                        {% url 'core:api:admin_api:averages' company_id=company.id %}
+                    {% else %}
+                        {% url 'core:api:averages' %}
+                    {% endif %}
+                {% else %} 
+                    {% if user_type == 'admin' %}
+                        {% url 'core:api:admin_api:course_averages' company_id=company.id course_id=course.id %} 
+                    {% else %}
+                        {% url 'core:api:course_averages' course_id=course.id %} 
+                    {% endif %}
+                {% endif %}
+                {% endif %}
+                "
+        </div>
+
+    </div>
+</div>
+{% include 'components/dashboard/info-modals/heatmap-modal.html' %}

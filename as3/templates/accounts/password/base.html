@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block base_styles %}
+<link rel="stylesheet" href="{% static 'assets/css/auth.css' %}">
+{% endblock base_styles %}
+
+{% block base_content %}
+<div id="auth">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-7 col-sm-9">
+                <div class="text-center my-5">
+                    <img src="{% static 'assets\images\AS3-Driver-Training-Logo-small_93756138-d10c-421b-aa3d-190628bbbf74.png' %}"
+                        alt="logo">
+                </div>
+                <div class = "card shadow-lg">
+                    {% comment %} <div class = "card-header">
+                        <h2 class="fs-4 card-title fw-bold mb-3 ">Login</h2>
+                    </div> {% endcomment %}
+                    <div class="card-body p-5">
+
+                    {% block page_content %}
+                    {% endblock page_content %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="col-lg-6 col-xl-6 col-xxl-7 d-none d-lg-block">
+            <div id="auth-right" style="height: 100%; width: 100%;">
+            </div>
+        </div> {% endcomment %}
+    </div>
+</div>
+{% endblock base_content %}
+{% block base_js %}
+{% block js %}
+{% endblock %}
+{% endblock %}

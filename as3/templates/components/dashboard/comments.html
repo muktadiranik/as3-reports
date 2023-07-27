@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="card">
+    <div class="card-header">
+        <h4>
+            <span class="language-en">
+                Instructor Remarks
+            </span>
+            <span class="language-es">
+                Comentarios del Instructor
+            </span>
+            <div id="comments-table-pagination" style="float:right; font-weight:200;">
+            </div>
+        </h4>
+    </div>
+    <div class="card-body" id="comments-table" img-src="{% static 'assets/images/avatar.png' %}"
+        data-url="
+        {% if page_type == 'course-only' and user_type == 'admin' %}
+            {% url 'core:api:admin_api:comments_list' course_id=course.id %}
+        {% else %}
+            {% url 'core:api:admin_api:comments_list' company_id=company.id course_id=course.id %} 
+        {% endif %}
+        ">
+        <div class="content">
+        </div>
+    </div>
+</div>

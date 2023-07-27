@@ -1,0 +1,13 @@
+<para>
+Un ejercicio multidisciplinario que engloba todas las competencias adquiridas a lo largo del curso; se mide de varias maneras. Se agregan algunos factores adicionales para la inoculación de estrés, dependiendo de la habilidad y experiencia del grupo, aumentando el nivel de dificultad en consecuencia.<br/>
+<br/>
+La ruta incluye cuatro pruebas básicas que definirán la experiencia, habilidad y autocontrol bajo estrés de cada alumno; medimos:<br/>
+<br/>
+<span fontName=MontserratBold>Tiempo:</span> Esta podría ser la más subjetiva de todas las pruebas. Determina la experiencia y soltura de cada alumno frente a la media de 4 recorridos establecidos por nuestros conductores profesionales a través del ejercicio. <br/>
+<br/>
+Una calificación aprobatoria requiere lograr más del 80% del ideal del ejercicio, pero esta es solo una de cuatro calificaciones; el resto incluye:<br/>
+<br/>
+<span fontName=MontserratBold>Slalom y Barricada:</span> El desempeño de cada estudiante en estos ejercicios debe ser superior al 80 % de la capacidad del vehículo, registrado en las computadoras de a bordo, como lo hicieron durante la práctica previa.<br/>
+<br/>
+<span fontName=MontserratBold>Reversa:</span> El último ejercicio comienza con un slalom en reversa; cada estudiante debe recorrer esta sección en menos del 20% de su tiempo total, sin derribar ningún cono, la cantidad de tiempo invertido en reversa está representada por el tamaño de los círculos en el gráfico, un círculo más pequeño significa un mejor desempeño.
+</para>

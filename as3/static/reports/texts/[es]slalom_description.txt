@@ -1,0 +1,7 @@
+<font size="8"><font color="blue"><b>La línea AZUL</b></font> representa el porcentaje de ejercicio que logró el estudiante; cualquier valor por debajo del 100 % es inaceptable porque significa falta de competencia, y cualquier valor por encima del 100 % es una señal de que el estudiante tiene problemas para seguir instrucciones específicas, aunque su nivel de habilidad sea más alto.<br/>
+<br/>
+<font color="red"><b>La línea ROJA</b></font> representa el porcentaje de vehículo alcanzado por el alumno a lo largo del ejercicio; el nivel mínimo aceptable es del 80% al final de la capacitación.<br/>
+<br/>
+Las caídas de línea (valor 0) en el ejercicio significan que el estudiante no pudo completar la tarea y golpeó un cono, o porque no pudo mantener una velocidad constante durante todo el ejercicio, la tolerancia para esta prueba es de +/- 6 kph.<br/>
+
+<font color="red" backColor="yellow"> EL MEJOR RESULTADO ES CUANDO AMBAS LÍNEAS SE ENCUENTRAN ALINEADAS CON LAS LÍNEAS PUNTEADAS DEL MISMO COLOR</font></font><br/>

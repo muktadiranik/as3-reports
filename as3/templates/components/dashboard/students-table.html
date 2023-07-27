@@ -1,0 +1,94 @@
+{% load static %}
+<section class="students-table">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <h4 class="card-title">
+                    <span class="language-en">
+                        Students
+                    </span>
+                    <span class="language-es">
+                        Estudiantes
+                    </span>
+                    <i class="bi bi-info-circle-fill" data-bs-toggle="modal" data-bs-target="#students-table-modal"></i>
+                    <div id="students-table-pagination" style="float:right; font-weight:100;">
+                    </div>
+                </h4>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group position-relative has-icon-right ">
+                        <input type="text" class="form-control filter-input" placeholder="Search here..."
+                            id="id_students_search_input">
+                        <div class="form-control-icon" style="float:right;">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8" >
+                    <button type="button" style="float:right;" id = "download_multiple_report" 
+                        class="btn btn-outline-secondary btn-sm" 
+                        data-url="{% url 'core:api:student_report_multiple' %}">
+                        Download Zip <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive justify-content-center" id="students-table" data-url="
+                {% if page_type == 'course-only' and user_type == 'admin' %}
+                    {% url 'core:api:admin_api:course_student_list' course_id=course.id %}
+                {% else %}
+                {% if page_type == 'company' %}
+                {% if user_type == 'admin' %}
+                    {% url 'core:api:admin_api:student_list' company_id=company.id %}
+                {% else %}
+                    {% url 'core:api:student_list' %}
+                {% endif %}
+                {% else %} 
+                {% if user_type == 'admin' %}
+                    {% url 'core:api:admin_api:course_student_list' company_id=company.id course_id=course.id %} 
+                    {% else %}
+                    {% url 'core:api:course_student_list' course_id=course.id %} 
+                {% endif %}
+            {% endif %}
+            {% endif %}">
+                <table class="table table-hover table-lg table-scrollable">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" class="form-check-input form-check-secondary students_all_check"
+                                    name="student_all_check" data-id="all">
+                                <span id = "sort-student-name">
+                                    <span class="language-en">NAME</span><span class="language-es">NOMBRE</span>
+                                    <i class="sort-student bi bi-filter clickable-row center" 
+                                        order="none">
+                                    </i>
+                                </span>
+                            </th>
+                            <th><span class="language-en">GROUP</span><span class="language-es">GRUPO</span>
+                            </th>
+                            <th><span class="language-en">TEAM</span><span class="language-es">EQUIPO</span>
+                            </th>
+                            <th id = "sort-student-result">
+                                <span class="language-en">PERF(%)</span><span class="language-es">PERF(%)</span>
+                                    <i class="sort-student bi bi-filter clickable-row center" 
+                                    order="none">
+                                </i>
+                            </th>
+                            <th><span class="language-en">REPORT</span><span class="language-es">REPORTE</span><i
+                                    class="clickable-row center" order="none"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="filter-affected">
+                    </tbody>
+                </table>
+                <div class="col-12 students-table-loader-gif">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'components/dashboard/info-modals/students-table-modal.html' %}

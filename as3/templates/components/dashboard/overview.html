@@ -1,0 +1,75 @@
+{% load static %}
+<section class="dashboard-overview">
+    <div class="row">
+        <div class="c-dashboardInfo col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="wrap">
+                <h5 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">
+                    <span class="language-en">
+                        Total Courses
+                    </span>
+                    <span class="language-es">
+                        Número de Cursos
+                    </span>
+
+                </h5>
+                <span class="hind-font caption-12 c-dashboardInfo__count filter-affected" id="card_total_courses_count"></span>
+                <div class="overview-loader">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="c-dashboardInfo col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="wrap">
+                <h5 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">
+                    <span class="language-en">
+                        Total Students
+                    </span>
+                    <span class="language-es">
+                        Número de Estudiantes
+                    </span>
+
+                </h5>
+                <span class="hind-font caption-12 c-dashboardInfo__count filter-affected" id="card_total_students_count"></span>
+                <div class="overview-loader">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="c-dashboardInfo col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="wrap">
+                <h5 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">
+                    <span class="language-en">
+                        Pass Count
+                    </span>
+                    <span class="language-es">
+                        Estudiantes Aprobados
+                    </span>
+                </h5>
+                <span class="hind-font caption-12 c-dashboardInfo__count filter-affected" id="card_total_pass_count"></span>
+                <div class="overview-loader">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+        <div class="c-dashboardInfo col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="wrap">
+                <h5 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">
+                    <span class="language-en">
+                        Expired Certificates
+                    </span>
+                    <span class="language-es">
+                        Certificados Expirados
+                    </span>
+                </h5>
+                <span class="hind-font caption-12 c-dashboardInfo__count filter-affected" id="expired_certificates_count"></span>
+                <div class="overview-exp-loader">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

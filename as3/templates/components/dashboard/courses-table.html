@@ -1,0 +1,54 @@
+{% load static %}
+<section class="section">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    <h4 class="card-title">
+                        <span class="language-en">
+                            Courses
+                        </span>
+                        <span class="language-es">
+                            Cursos
+                        </span>
+                        <i class="bi bi-info-circle-fill" data-bs-toggle="modal"
+                            data-bs-target="#courses-table-modal"></i>
+                    </h4>
+                </div>
+                <div class="col">
+                    <div id="course-table-pagination" style="float:right;">
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="table-responsive" id="courses-table"
+                        data-href="{% if user_type == 'company' %}{% url 'core:api:courses_getapi' %}{% else %}{% url 'core:api:admin_api:courses_getapi' company_id=company.id %}{% endif %}">
+                        <table class="table table-responsive table-lg">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span class="language-en">PROGRAM</span>
+                                        <span class="language-es">PROGRAMA</span>
+                                    </th>
+                                    <th>
+                                        <span class="language-en">LOCATION</span>
+                                        <span class="language-es">LOCALIDAD</span>
+                                    </th>
+                                    <th>
+                                        <span class="language-en">EVENT DATE</span>
+                                        <span class="language-es">FECHA DEL EVENTO</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class = "filter-affected">
+                            </tbody>
+                        </table>
+                        <div class="col-12 course-table-gif">
+                            <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+{% include 'components/dashboard/info-modals/course-table-modal.html' %}

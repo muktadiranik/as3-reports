@@ -1,0 +1,44 @@
+{% load static %}
+<section class="section performances">
+    <div class="tab-pane fade show active" id="top_performers" role="tabpanel" aria-labelledby="top-performers-tab">
+        <div class="container-fluid">
+            <br />
+            <div>
+                {% comment %} <h5>
+                    <span class="language-en">
+                        Top Performers
+                    </span>
+                    <span class="language-es">
+                        Alto Desempeño
+                    </span>
+                </h5> {% endcomment %}
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col col-xxl-6 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                        <div class="row">
+                            <div class="col col-xxl-12 col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                                <div id="top-performer-text" class='filter-affected'>
+                                </div>
+                            </div>
+                            <div class="col col-xxl-12 col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                                <div id="top-performer-plot" class="justify-content-center filter-affected"
+                                    style="margin-top:20px;">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col col-xxl-6 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div id="top-performer-table" class='filter-affected'>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 performance-loader-gif">
+                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

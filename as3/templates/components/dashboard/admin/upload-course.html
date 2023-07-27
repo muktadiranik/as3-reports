@@ -1,0 +1,87 @@
+{% load static %}
+<div class="offcanvas offcanvas-bottom"  id="uploadCourseOffcanvasBottom"
+    aria-labelledby="uploadCourseOffcanvasRightLabel" data-upload="{% url 'core:api:admin_api:course_uploads_list' %}">
+    <div class="offcanvas-header">
+        <h4 id="offcanvasRightLabel">
+            Upload a Course
+            <i class="bi bi-cloud-upload-fill"></i>
+        </h4>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <div class="card" style="margin-bottom:0;">
+                <div class="card-header">
+                    {% comment %} <h5>Course Generals</h5> {% endcomment %}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Course Date</span>
+                            <div id="select-event-date"
+                                style="background: #f9f9f9; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                                <i class="bi bi-calendar"></i>&nbsp;
+                                <span></span> <i class="bi bi-caret-down-fill"
+                                    style="font-size:12px; float:right;margin-top:4px;"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <span>Location</span>
+                            <button type="button" class = "btn btn-sm btn-outline-primary create-basic-model-btn" 
+                            data-bs-toggle="modal" data-bs-target="#create-basic-model-modal"
+                            data-url = "{% url 'core:api:venues' %}" data-type = "Location">
+                                Add <i class="bi bi-plus-lg"></i>
+                            </button>
+                            <fieldset class="form-group">
+                                <select name="venue" class="form-select choices" id="selectLocation"
+                                    data-url="{% url 'core:api:venues' %}">
+                                </select>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <fieldset class="form-group">
+                                <span>Program</span>
+                                <button type="button" class = "btn btn-sm btn-outline-primary create-basic-model-btn" 
+                                data-bs-toggle="modal" data-bs-target="#create-basic-model-modal"
+                                data-url = "{% url 'core:api:programs' %}" data-type = "Program">
+                                    Add <i class="bi bi-plus-lg"></i>
+                                </button>
+                                <select name="program" class="form-select choices" id="selectProgram"
+                                    data-url="{% url 'core:api:programs' %}" >
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="col-6">
+                            <fieldset class="form-group">
+                                <span>Client Name</span> 
+                                <button type="button" class = "btn btn-sm btn-outline-primary create-basic-model-btn" 
+                                data-bs-toggle="modal" data-bs-target="#create-basic-model-modal" 
+                                data-url = "{% url 'core:api:companies' %}" data-type = "Company">
+                                    Add <i class="bi bi-plus-lg"></i>
+                                </button>
+                                <select name="company" class="form-select choices" id="selectCompany"
+                                    data-url="{% url 'core:api:companies' %}" >
+                                </select>
+                                
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="course-upload-form-section">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/dashboard/admin/create-basic-model-modal.html' %}
+
+<script>
+    var swal_upload_course_desc =
+        `<h5>Pushing the excercises, comments, students, course to Database. This will take a while...</h5><br><img src = "{% static 'assets/images/download_wait.gif' %}">`
+    var swal_delete_upload_course_desc =
+        `<h5>Deleting the excercises, comments, students, course from the Database. This will take a while...</h5><br><img src = "{% static 'assets/images/download_wait.gif' %}">`
+</script>

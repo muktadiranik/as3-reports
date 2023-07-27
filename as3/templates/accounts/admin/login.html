@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Admin Login | AS3 International Dashboard</title>
+{% endblock title %}
+{% block base_content %}
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-7 col-sm-9">
+                <div class="text-center my-5">
+                    <img src="{% static 'assets\images\AS3-Driver-Training-Logo-small_93756138-d10c-421b-aa3d-190628bbbf74.png' %}"
+                        alt="logo">
+                </div>
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <br>
+                        <h2 class="auth-title">Admin Dashboard</h2>
+                        <p class="auth-subtitle mb-3">Login to see admin dashboard.</p>
+
+                        {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p>{{ error }}</p>
+                        </div>
+                        {% endfor %}
+
+                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="form-group position-relative has-icon-left">
+                                {{form.username}}
+                                <div class="form-control-icon">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                {% comment %} <label class="mb-2 text-muted" for="username">Username/E-Mail Address</label> {% endcomment %}
+                            </div>
+
+                            <div class="form-group position-relative has-icon-left">
+                                {{form.password}}
+                                <div class="form-control-icon">
+                                    <i class="bi bi-shield-lock"></i>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-lg shadow-lg mt-4" type="submit">Log in</button>
+                        </form>
+                        <br />
+                        <div class="text-center">
+                            <p><a href="{% url 'company-accounts:password_reset' %}">Forgot password?</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5 text-muted">
+                    Copyright &copy; 2022 &mdash; All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock base_content %}

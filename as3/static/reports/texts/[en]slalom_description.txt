@@ -1,0 +1,7 @@
+<font size="8"><font color="blue"><b>The BLUE line</b></font> represents the exercise percentage the student achieved; anything below 100% is unacceptable because that means lack of proficiency, and anything above 100% is a sign that the student has problems following specific instructions, even though his skill level is higher.<br/>
+<br/>
+<font color="red"><b>The RED line</b></font> represents the vehicle percentage reached by the student throughout the exercise; the minimum acceptable level is at 80% by the end of the training.<br/>
+<br/>
+The line drops (0 value) in the exercise mean either that the student couldn´t complete the task and hit a cone, or because he couldn´t sustain a consistent speed throughout the exercise, the tolerance for this test is +/- 4 mph.<br/>
+
+<font color="red" backColor="yellow"> THE BEST RESULT IS WHEN BOTH LINES ARE BE ALIGNED WITH THE DOTTED LINES OF THE SAME COLOR</font></font><br/>

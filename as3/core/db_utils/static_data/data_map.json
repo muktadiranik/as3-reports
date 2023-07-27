@@ -1,0 +1,145 @@
+{
+    "excel": {
+        "sheets": [
+            {
+                "sheet_name": "Course Values",
+                "header": 1,
+                "num_table": 4,
+                "meta_data": [
+                    {
+                        "table_name": "course_generals",
+                        "columns": {
+                            "Date": "date",
+                            "Location": "location",
+                            "Program": "program",
+                            "Client": "client",
+                            "Country": "country",
+                            "Units": "unit"
+                        },
+                        "non_null_col": "program"
+                    },
+                    {
+                        "table_name": "car_information",
+                        "columns": {
+                            "Car": "car", 
+                            "Make": "make",
+                            "LatAcc": "last_acc"
+                        },
+                        "non_null_col": "make"
+                    },
+                    {
+                        "table_name": "skill_building",
+                        "columns": {
+                            "Exercise": "exercise", 
+                            "Chord": "chord", 
+                            "MO": "mo"
+                        },
+                        "non_null_col": "exercise"
+                    },
+                    {
+                        "table_name": "final_exercise",
+                        "columns": {
+                            "Ideal_Time Sec": "ideal_time_sec", 
+                            "Cone Penalty Sec": "cone_penalty_sec", 
+                            "Door Penalty Sec": "door_penalty_sec"
+                        },
+                        "non_null_col": "ideal_time sec"
+                    }
+                ]
+            },
+            {
+                "sheet_name": "Students",
+                "header": 0,
+                "num_table": 1,
+                "meta_data": [
+                    {
+                        "table_name": "students",
+                        "columns": {
+                            "Name": "firstname", 
+                            "Last Name": "lastname", 
+                            "Company": "company", 
+                            "Gender": "gender", 
+                            "Birthday": "dob", 
+                            "Fullname": "fullname"
+                        },
+                        "non_null_col": "name"
+                    }
+                ]
+            },
+            {
+                "sheet_name": "Skill Building",
+                "header": 0,
+                "num_table": 1,
+                "meta_data": [
+                    {
+                        "table_name": "skill_building_line",
+                        "columns": {
+                            "ID": "id", 
+                            "Car #": "car", 
+                            "Participant": "participant", 
+                            "Exercise": "exercise", 
+                            "Speed Req": "speed_req", 
+                            "V1": "v1", 
+                            "V2": "v2", 
+                            "V3": "v3", 
+                            "Cones": "cones"
+                        },
+                        "non_null_col": "participant"
+                    }
+                ]
+            },
+            {
+                "sheet_name": "Final Exercise",
+                "header": 0,
+                "num_table": 1,
+                "meta_data": [
+                    {
+                        "table_name": "final_exercise_line",
+                        "columns": {
+                            "ID": "id", 
+                            "Exercise": "exercise", 
+                            "Participant": "participant", 
+                            "Pressure": "pressure", 
+                            "Car #": "car", 
+                            "Cones": "cones", 
+                            "Doors": "doors", 
+                            "Time": "time"
+                        },
+                        "non_null_col": "participant"
+                    }
+                ]
+            },
+            {
+                "sheet_name": "Instructor Comments",
+                "header": 0,
+                "num_table": 1,
+                "meta_data": [
+                    {
+                        "table_name": "instructor_comments",
+                        "columns": {
+                            "Participant": "participant", 
+                            "Comment": "comment"
+                        },
+                        "non_null_col": "participant"
+                    }
+                ]
+            },
+            {
+                "required": false,
+                "sheet_name": "Other_Values",
+                "header": 0,
+                "num_table": 1,
+                "meta_data": [
+                    {
+                        "required": false,
+                        "table_name": "other_values",
+                        "columns": {
+                            "Countries": "countries", 
+                            "Units": "units", 
+                            "Students": "students"}
+                    }
+                ]
+            }
+        ]
+    }
+}

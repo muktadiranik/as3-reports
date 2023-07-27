@@ -1,0 +1,82 @@
+{% extends 'core/company/base.html' %}
+{% block title %}
+<title>{{company.name}} | AS3 International Dashboard</title>
+{% endblock title %}
+{% load static %}
+{% block styles %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block page_content %}
+<section class="page-content" class="container-fluid">
+
+    <div class="row">
+        {% include 'components/dashboard/overview.html' %}
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {% include 'components/dashboard/heatmap.html' %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12">
+            {% include 'components/dashboard/courses-table.html' %}
+            
+            {% include 'components/dashboard/students-table.html' %}
+            
+        </div>
+        <div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <div class="students-performance-table">
+                <div class="row">
+                    <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        {% include 'components/dashboard/top-performers-table.html' %}
+                    </div>
+
+                    <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        {% include 'components/dashboard/expired_certificates.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {% include 'components/dashboard/performers.html' %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            {% include 'components/dashboard/activity.html' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% include 'components/dashboard/conclusion.html' %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block inner_js %}
+
+<script type="text/javascript" src="{% static 'assets/js/filter.js' %}"></script>
+<script src="{% static 'assets/js/company.js' %}"></script>
+
+<script>
+    const ps_body = new PerfectScrollbar('#block-content', {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 20
+    });
+    var sweet_loader = ``;
+</script>
+{% endblock %}

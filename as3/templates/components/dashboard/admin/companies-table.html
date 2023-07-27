@@ -1,0 +1,41 @@
+<section class="section users-table">
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="card-title">Company Report </h4>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group position-relative has-icon-right ">
+                            <input type="text" class="form-control filter-input" placeholder="Search here..." id = "id_company_search_input">
+                            <div class="form-control-icon" style = "float:right;">
+                                <i class="bi bi-search"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-6">
+                            <div id="companies-table-pagination" style="float:right;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="table-responsive table-scrollable" id="companies-table"
+                            data-url="{% url 'core:api:admin_api:company_report_list_api' %}">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'components/dashboard/admin/company-user-detail-modal.html' %}
+</section>

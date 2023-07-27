@@ -1,0 +1,74 @@
+{% extends 'core/company/base.html' %}
+{% block title %}
+<title>Feedback - {{company.name}} | AS3 International Dashboard</title>
+{% endblock title %}
+{% load static %}
+{% block styles %}
+
+{% endblock %}
+
+{% block base_content %}
+<div id="app">
+
+  {% include 'partials/navbar.html' %}
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Feedback</h4>
+      </div>
+      <div class="card-body">
+        <form id="feedback-form" method = "POST"> {% csrf_token %}
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" name = "fullName" id="fullName" class="form-control round" placeholder="Full name here..." >
+          </div>
+
+          <div class="form-group">
+            <label for="likeMost">What did you like the most? *</label>
+            <textarea type="text" name = "likeMost" id="likeMost" class="form-control round"
+              placeholder="Start writing here..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="didntLike">What didn't you like or found confusing? *</label>
+            <textarea type="text"  name = "didntLike" id="didntLike" class="form-control round"
+              placeholder="Start writing here..." required></textarea>
+          </div>
+
+
+          <div class="form-group">
+            <label for="futureSuggestion">What else would you like to see in the Dashboard? *</label>
+            <textarea type="text" name = "futureSuggestion" id="futureSuggestion" class="form-control round"
+              placeholder="Start writing here..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="overallFeedback">Overall Feedback *</label>
+            <textarea type="text" name = "overallFeedback" id="overallFeedback" class="form-control round" placeholder="Start writing here..."
+              rows=5 required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="overallRating">Overall Rating *</label>
+            <div class="feedback">
+              {% include 'components/form-component/rating.html' %}
+            </div>
+          </div>
+          <div class="col-sm-12 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary me-1 mb-1">
+              Submit
+            </button>
+            <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+              Reset
+            </button>
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+    <br />
+  </div>
+
+</div>
+
+{% endblock base_content %}

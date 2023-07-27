@@ -1,0 +1,28 @@
+<!-- Modal -->
+<div class="modal fade" id="create-basic-model-modal" role="dialog" aria-labelledby="create-basic-model-modal-label"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="create-basic-model-modal-label">Add New <span class = "model_data_type"></span></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form method="POST" class="needs-validation" 
+			novalidate="" autocomplete="off" id="_id_basic_model_create_form"
+			>
+				<div class="modal-body">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for = "id_basic_model_input" style="margin-bottom:4px;"><span class = "model_data_type"></span> Name</label>
+						<input class="form-control" name="name" id="id_basic_model_input" autofocus />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="Add">
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>

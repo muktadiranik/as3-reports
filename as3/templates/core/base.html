@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block base_styles %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<link rel="stylesheet" href="{% static 'assets/css/vendors/iconly/iconly-bold.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.css" 
+    integrity="sha512-QmxybGIvkSI8+CGxkt5JAcGOKIzHDqBMs/hdemwisj4EeGLMXxCm9h8YgoCwIvndnuN1NdZxT4pdsesLXSaKaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% block styles %}
+{% endblock styles %}
+
+{% endblock base_styles %}
+
+
+{% block base_content %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <div id="block-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+{% endblock base_content %}
+    
+{% block base_js %}
+<script>
+    $(window).on('load', function () { // makes sure the whole site is loaded 
+        var randomnumber = Math.floor(Math.random() * (800)) + 1250;
+        console.log(randomnumber)
+        $('#status').delay(randomnumber).fadeOut("slow"); // will first fade out the loading animation 
+        $('#preloader').delay(randomnumber).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+        $('body').delay(500).css({
+            'overflow': 'visible'
+        });
+    })
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/perfect-scrollbar.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js" 
+    integrity="sha512-1zzZ0ynR2KXnFskJ1C2s+7TIEewmkB2y+5o/+ahF7mwNj9n3PnzARpqalvtjSbUETwx6yuxP5AJXZCpnjEJkQw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script>
+    var swal_desc = `<h5>Cooking the fresh report for you. It will take some time to finish...</h5><br><img src = "{% static 'assets/images/download_wait.gif' %}">`
+    var swal_download_multiple_course_desc = 
+    `<h5Downloading selected student reports. This will take a while...</h5><br><img src = "{% static 'assets/images/download_wait.gif' %}">`
+ 
+</script>
+<script src="{% static 'assets/js/base.js' %}"></script>
+
+{% block js %}
+{% endblock js %}
+
+{% endblock base_js %}

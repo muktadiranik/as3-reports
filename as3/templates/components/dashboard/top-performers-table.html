@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-header">
+        <h4>
+            <span class="language-en">
+                {{company.name}}'s Top 5 Peformers 
+            </span>
+            <span class="language-es">
+                {{company.name}}'s Mejores 5 Conductores
+            </span>
+            {% comment %} <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Top 5 performers of {{company.name}}"></i> {% endcomment %}
+        </h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive table-max-scrollable">
+            <table class="table table-responsive table-lg" id="top_performers_table">
+                <thead>
+                    <tr>
+                        <th class = "col-9">
+                            <span class="language-en">
+                                NAME
+                            </span>
+                            <span class="language-es">
+                                NOMBRE
+                            </span>
+                            
+                        </th>
+                        <th class = "col-3">
+                            <span class="language-en">
+                                PERF(%)
+                            </span>
+                            <span class="language-es">
+                                PERF(%)
+                            </span>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t_st in top_students %}
+                    <tr>
+                        <td class = "col-9">
+                            {{t_st.0}} {{t_st.1}}
+                            {% comment %} ${top_performers[i]["result"]["final_result"]==max_avg? '<i
+                                class="bi bi-trophy-fill"></i>':''} {% endcomment %}
+                        </td>
+                        <td class = "col-3">
+                            {{t_st.2|floatformat }}%
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+{% load static %}
+    {% comment %} herwe {% endcomment %}
+
+<section class="section activity-section" id="activity-section" 
+         perf-list-url="
+         {% if page_type == 'course-only' and user_type == 'admin' %}
+            {% url 'core:api:admin_api:course_performance_list' course_id=course.id %}
+         {% else %}
+         {% if page_type == 'company' %}
+            {% if user_type == 'admin' %}
+                {% url 'core:api:admin_api:performance_list' company_id=company.id %}
+            {% else %}
+                {% url 'core:api:performance_list' %}
+            {% endif %}
+
+            {% else %} 
+            {% if user_type == 'admin' %}
+            {% url 'core:api:admin_api:course_performance_list' company_id=company.id course_id=course.id %} 
+            {% else %}
+            {% url 'core:api:course_performance_list' course_id=course.id %} 
+            {% endif %}
+        {% endif %}{% endif %}">
+    <div class="row">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        <span class="language-en">
+                            Skill Development
+                        </span>
+                        <span class="language-es">
+                            Desarrollo de Habilidades
+                        </span>
+                        <i class="bi bi-info-circle-fill" data-bs-toggle="modal" data-bs-target="#activity-modal"></i>
+                    </h4>
+                </div>
+                <div class="card-body progress-card-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="slalom-activity-tab" data-bs-toggle="tab"
+                                href="#slalom_activity" role="tab" aria-controls="slalom_activity" aria-selected="true">
+                                <h6>
+                                    <span class="language-en">
+                                        Slalom
+                                    </span>
+                                    <span class="language-es">
+                                        Slalom
+                                    </span>
+                                </h6>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="lane-change-activity-tab" data-bs-toggle="tab"
+                                href="#lane_change_activity" role="tab" aria-controls="lane_change_activity"
+                                aria-selected="false">
+                                <h6>
+                                    <span class="language-en">
+                                        Barricade Evasion
+                                    </span>
+                                    <span class="language-es">
+                                        Evasión de Barricada
+                                    </span>
+                                </h6>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="final-exercise-activity-tab" data-bs-toggle="tab"
+                                href="#final_excercise_activity" role="tab" aria-controls="final_excercise_activity"
+                                aria-selected="false">
+                                <h6>
+                                    <span class="language-en">
+                                        Final Exercise
+                                    </span>
+                                    <span class="language-es">
+                                        Ejercicio Multidisciplinario
+                                    </span>
+                                </h6>
+                            </a>
+                        </li>
+                    </ul>
+                    <br />
+                    <div class="tab-content" id="performaceTabContent">
+                        <div class="tab-pane fade show active" id="slalom_activity" role="tabpanel"
+                            aria-labelledby="slalom-activity-tab">
+                            <div class="container-fluid">
+                                <h5>
+                                    <span class="language-en">
+                                        Slalom
+                                    </span>
+                                    <span class="language-es">
+                                        Slalom
+                                    </span>
+
+                                    <i class="bi bi-info-circle-fill" data-bs-toggle="modal"
+                                        data-bs-target="#slalom-modal"></i>
+                                </h5>
+                                <div class="col-12 activity-loader-gif">
+                                    <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                                </div>
+                                <div id="slalom-activity-plot" class='filter-affected'></div>
+                                <br />
+                                <div id="slalom-activity-text" class='filter-affected'></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="lane_change_activity" role="tabpanel"
+                            aria-labelledby="lane-change-activity-tab">
+                            <div class="container-fluid">
+                                <h5>
+
+                                    <span class="language-en">
+                                        Barricade Evasion
+                                    </span>
+                                    <span class="language-es">
+                                        Evasión de Barricada
+                                    </span>
+
+                                    <i class="bi bi-info-circle-fill" data-bs-toggle="modal"
+                                        data-bs-target="#lane-change-modal"></i>
+                                </h5>
+                                <div>
+                                    <div id="lane-change-activity-plot" class='filter-affected'></div>
+                                    <br />
+                                    <div id="lane-change-activity-text" class='filter-affected'></div>
+                                    <div class="col-12 activity-loader-gif">
+                                        <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="final_excercise_activity" role="tabpanel"
+                            aria-labelledby="final-exercise-activity-tab">
+
+                            <div class="container-fluid">
+                                <h5>
+                                    <span class="language-en">
+                                        Final Exercise
+                                    </span>
+                                    <span class="language-es">
+                                        Ejercicio Multidisciplinario
+                                    </span>
+
+                                    <i class="bi bi-info-circle-fill" data-bs-toggle="modal"
+                                        data-bs-target="#scatter-modal"></i>
+                                </h5>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 control-performance-loader-gif">
+                                            <img src="{% static '/assets/images/loader-2.gif' %}" class="pre-loader" />
+                                        </div>
+                                        <div class="col col-xxl-7 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div id="control-performance-plot" class='filter-affected'></div>
+                                        </div>
+                                        <div class="col col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div id="control-performance-table">
+                                                <div class = "pagination filter-affected" style = "float:right;">
+                                                </div>
+                                                <div class = "table filter-affected">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'components/dashboard/info-modals/slalom.html' %}
+    {% include 'components/dashboard/info-modals/lane-change.html' %}
+    {% include 'components/dashboard/info-modals/scatter.html' %}
+    {% include 'components/dashboard/info-modals/activities-modal.html' %}
+
+</section>
